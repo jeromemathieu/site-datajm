@@ -444,4 +444,14 @@
             const btn = form.querySelector('button');
 
             btn.innerHTML = '<i class="ph ph-spinner animate-spin"></i> Envoi...';
-            btn.disabled
+            btn.disabled;
+            setTimeout(() => {
+                form.reset();
+                form.style.display = 'none';
+                msg.classList.remove('hidden');
+            }, 1500);
+        }
+    </script>
+</body>
+
+</html>
