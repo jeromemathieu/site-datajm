@@ -11,8 +11,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="tailwind.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -32,7 +35,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="index.html" class="flex items-center gap-2">
-                    <img src="logodatajm.JPEG" alt="DataJM Logo" class="h-12 w-auto">
+                    <img src="logo-datajm.webp" alt="DataJM - Consultant Expert Data SAP" width="131" height="96" class="h-12 w-auto">
                 </a>
                 <a href="index.html"
                     class="text-slate-600 hover:text-blue-700 font-medium transition flex items-center gap-2">
@@ -115,7 +118,7 @@
             </div>
 
             <!-- Politique de Confidentialité -->
-            <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <div id="politique-confidentialite" class="bg-white rounded-2xl shadow-lg p-8 mb-8 scroll-mt-28">
                 <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
                     <i class="ph ph-shield-check text-blue-600"></i>
                     Politique de Confidentialité
@@ -281,12 +284,15 @@
     <footer class="bg-white border-t border-slate-200 py-8">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="text-slate-500 text-sm">
-                &copy; 2025 DataJM. Tous droits réservés.<br>
+                &copy; <span id="footer-year">2026</span> DataJM. Tous droits réservés.<br>
                 <a href="index.html" class="text-blue-600 hover:underline">Retour à l'accueil</a>
             </p>
         </div>
     </footer>
 
+    <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>

@@ -4,15 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataJM - Consultant Expert Data SAP</title>
+    <title>DataJM - Consultant Expert Data SAP | BW/4HANA, Analytics, Qualité de données</title>
+    <meta name="description"
+        content="Consultant indépendant spécialisé SAP : modélisation BW/4HANA, Analytics & BI (SAC, BI Platform, AfO), gouvernance et qualité de données. Basé à Paris, disponible en remote.">
+    <link rel="canonical" href="https://datajm.fr/">
+    <meta name="theme-color" content="#0e2a47">
+    <!-- Open Graph / Réseaux sociaux -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://datajm.fr/">
+    <meta property="og:title" content="DataJM - Consultant Expert Data SAP">
+    <meta property="og:description"
+        content="Expertise technique et fonctionnelle pour vos projets data SAP : migration BW/4HANA, reporting SAC, qualité de données. L'agilité d'un freelance, la rigueur d'un expert.">
+    <meta property="og:image" content="https://datajm.fr/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DataJM - Consultant Expert Data SAP">
+    <meta name="twitter:description"
+        content="Expertise technique et fonctionnelle pour vos projets data SAP : migration BW/4HANA, reporting SAC, qualité de données.">
+    <meta name="twitter:image" content="https://datajm.fr/og-image.png">
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="tailwind.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- AOS Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -20,92 +41,85 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-
-        .sap-gradient {
-            background: linear-gradient(135deg, #0e2a47 0%, #1e40af 100%);
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(229, 231, 235, 0.5);
-        }
-
-        /* Animation blob pour le hero */
-        @keyframes blob {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(30px, -50px) scale(1.1);
-            }
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-            }
-        }
-
-        .animate-blob {
-            animation: blob 7s infinite;
-        }
-
-        .animation-delay-2000 {
-            animation-delay: 2s;
-        }
     </style>
+    <!-- Données structurées pour les moteurs de recherche -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "DataJM",
+        "description": "Consultant indépendant spécialisé SAP : modélisation BW/4HANA, Analytics & BI, gouvernance et qualité de données.",
+        "url": "https://datajm.fr/",
+        "email": "contact@datajm.fr",
+        "founder": {
+            "@type": "Person",
+            "name": "Jérôme Mathieu"
+        },
+        "areaServed": "FR",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Paris",
+            "addressCountry": "FR"
+        }
+    }
+    </script>
 </head>
 
 
 <body class="bg-slate-50 text-slate-800">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-2">
-                    <img src="logodatajm.JPEG" alt="DataJM Logo" class="h-12 w-auto">
-                </div>
+                <a href="#accueil" class="flex items-center gap-2">
+                    <img src="logo-datajm.webp" alt="DataJM - Consultant Expert Data SAP" width="131" height="96" class="h-12 w-auto">
+                </a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#accueil" class="text-slate-600 hover:text-blue-700 font-medium transition">Accueil</a>
-                    <a href="#expertise" class="text-slate-600 hover:text-blue-700 font-medium transition">Expertise
-                        SAP</a>
-                    <a href="#pourquoi-moi" class="text-slate-600 hover:text-blue-700 font-medium transition">Pourquoi
-                        DataJM ?</a>
+                    <a href="#accueil" data-navlink
+                        class="text-slate-600 hover:text-blue-700 font-medium transition">Accueil</a>
+                    <a href="#expertise" data-navlink
+                        class="text-slate-600 hover:text-blue-700 font-medium transition">Expertise SAP</a>
+                    <a href="#pourquoi-moi" data-navlink
+                        class="text-slate-600 hover:text-blue-700 font-medium transition">Pourquoi DataJM ?</a>
                 </div>
                 <a href="#contact"
                     class="hidden md:block bg-blue-700 hover:bg-blue-800 text-white px-6 py-2.5 rounded-full font-semibold transition shadow-lg shadow-blue-700/20">
                     Me Contacter
                 </a>
                 <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2">
-                    <i class="ph ph-list text-3xl"></i>
+                <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2" aria-label="Ouvrir le menu"
+                    aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="ph ph-list text-3xl" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full">
+        <div id="mobile-menu"
+            class="md:hidden bg-white border-t border-slate-100 absolute w-full overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-out">
             <div class="flex flex-col px-4 py-4 space-y-4">
                 <a href="#accueil" class="text-slate-600 font-medium">Accueil</a>
                 <a href="#expertise" class="text-slate-600 font-medium">Expertise SAP</a>
-                <a href="#pourquoi-moi" class="text-slate-600 font-medium">Avantages</a>
+                <a href="#pourquoi-moi" class="text-slate-600 font-medium">Pourquoi DataJM ?</a>
                 <a href="#contact" class="text-blue-700 font-bold">Me Contacter</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="accueil" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <section id="accueil" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-900">
         <!-- Video Background -->
         <video id="hero-video" autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-20">
             <source src="video.MP4" type="video/mp4">
         </video>
         <!-- Dark Overlay for readability -->
         <div class="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-blue-900/60 to-slate-900/80 -z-10"></div>
-        
+
         <!-- Sound Toggle Button -->
-        <button id="sound-toggle" 
-            class="absolute bottom-24 right-6 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition duration-300 border border-white/30"
-            title="Activer le son">
-            <i id="sound-icon" class="ph ph-speaker-slash text-xl"></i>
+        <button id="sound-toggle"
+            class="absolute bottom-32 md:bottom-40 right-6 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition duration-300 border border-white/30"
+            title="Activer le son" aria-label="Activer le son de la vidéo">
+            <i id="sound-icon" class="ph ph-speaker-slash text-xl" aria-hidden="true"></i>
         </button>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -165,7 +179,7 @@
     </section>
 
     <!-- Services / Expertise Section -->
-    <section id="expertise" class="py-20 bg-white">
+    <section id="expertise" class="py-20 bg-white scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span data-aos="fade-up" data-aos-duration="600"
@@ -187,7 +201,7 @@
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Modélisation de Données</h3>
                     <p class="text-slate-600 mb-4">
-                        Modélisation de données surr SAP BW4/HANA. Maîtrise des différents types de migration (brownfield, ...).
+                        Modélisation de données sur SAP BW4/HANA. Maîtrise des différents types de migration (brownfield, ...).
                     </p>
                     <ul class="text-sm text-slate-500 space-y-2">
                         <li class="flex items-center gap-2"><i class="ph ph-check text-green-500"></i> Flux de données ABAP ou AMDP
@@ -249,7 +263,7 @@
     </section>
 
     <!-- Why Choose Me Section -->
-    <section id="pourquoi-moi" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <section id="pourquoi-moi" class="py-20 bg-slate-900 text-white relative overflow-hidden scroll-mt-20">
         <div
             class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
         </div>
@@ -331,7 +345,7 @@
     </section>
 
     <!-- CTA / Contact Section -->
-    <section id="contact" class="py-20 bg-blue-50">
+    <section id="contact" class="py-20 bg-blue-50 scroll-mt-20">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div data-aos="zoom-in" data-aos-duration="800"
                 class="bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -340,28 +354,26 @@
                     <p class="text-blue-200 mt-2">Disponibilité, TJM, Expertise... Posez-moi vos questions.</p>
                 </div>
                 <div class="p-8 md:p-12">
-                    <!-- MISE A JOUR POUR DEPLOIEMENT : Formulaire configuré pour Formspree -->
-                    <!-- 1. Inscrivez-vous sur https://formspree.io -->
-                    <!-- 2. Créez un nouveau formulaire -->
-                    <!-- 3. Copiez l'ID qu'ils vous donnent et remplacez "VOTRE_ID_FORMSPREE" ci-dessous -->
                     <form action="https://formspree.io/f/mwpzvzyj" method="POST" class="space-y-6">
+                        <!-- Champ anti-spam invisible (honeypot Formspree) -->
+                        <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
-                                <label class="block text-sm font-medium text-slate-700 mb-2">Nom complet</label>
-                                <input type="text" name="name" required
+                                <label for="contact-name" class="block text-sm font-medium text-slate-700 mb-2">Nom complet</label>
+                                <input type="text" name="name" id="contact-name" required autocomplete="name"
                                     class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-slate-50"
                                     placeholder="Jean Dupont">
                             </div>
                             <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
-                                <label class="block text-sm font-medium text-slate-700 mb-2">Email professionnel</label>
-                                <input type="email" name="email" required
+                                <label for="contact-email" class="block text-sm font-medium text-slate-700 mb-2">Email professionnel</label>
+                                <input type="email" name="email" id="contact-email" required autocomplete="email"
                                     class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-slate-50"
                                     placeholder="jean@entreprise.com">
                             </div>
                         </div>
                         <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
-                            <label class="block text-sm font-medium text-slate-700 mb-2">Sujet</label>
-                            <select name="subject"
+                            <label for="contact-subject" class="block text-sm font-medium text-slate-700 mb-2">Sujet</label>
+                            <select name="subject" id="contact-subject"
                                 class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-slate-50">
                                 <option value="Demande d'informations">Demande d'informations</option>
                                 <option value="Migration BW4/HANA">Migration BW4/HANA</option>
@@ -370,8 +382,8 @@
                             </select>
                         </div>
                         <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
-                            <label class="block text-sm font-medium text-slate-700 mb-2">Message</label>
-                            <textarea name="message" rows="4" required
+                            <label for="contact-message" class="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                            <textarea name="message" id="contact-message" rows="4" required
                                 class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-slate-50"
                                 placeholder="Décrivez brièvement votre besoin..."></textarea>
                         </div>
@@ -391,11 +403,11 @@
                 class="mt-12 flex flex-col md:flex-row justify-center items-center gap-8 text-slate-500">
                 <div class="flex items-center gap-2">
                     <i class="ph ph-envelope-simple text-xl"></i>
-                    <span><a href="mailto:contact@datajm.fr">contact@datajm.fr</a></span>
+                    <span><a href="mailto:contact@datajm.fr" class="hover:text-blue-700 transition">contact@datajm.fr</a></span>
                 </div>
                 <div class="flex items-center gap-2">
                     <i class="ph ph-linkedin-logo text-xl"></i>
-                    <a href="https://www.linkedin.com/in/j%C3%A9rome-mathieu-42648a1/"
+                    <a href="https://www.linkedin.com/in/j%C3%A9rome-mathieu-42648a1/" target="_blank" rel="noopener"
                         class="hover:text-blue-700 transition">LinkedIn Profile</a>
                 </div>
                 <div class="flex items-center gap-2">
@@ -410,8 +422,8 @@
     <footer class="bg-white border-t border-slate-200 py-8">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="text-slate-500 text-sm">
-                &copy; 2025 DataJM. Tous droits réservés.<br>
-                <a href="mentions-legales.html" class="text-blue-600 hover:underline">Mentions légales</a> · 
+                &copy; <span id="footer-year">2026</span> DataJM. Tous droits réservés.<br>
+                <a href="mentions-legales.html" class="text-blue-600 hover:underline">Mentions légales</a> ·
                 <a href="mentions-legales.html#politique-confidentialite" class="text-blue-600 hover:underline">Politique de confidentialité</a>
             </p>
             <p class="text-xs text-slate-400 mt-2">
@@ -421,49 +433,74 @@
     </footer>
 
     <!-- AOS Library JS -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS
-        AOS.init({
-            once: true, // Animation ne se joue qu'une fois
-            offset: 100, // Déclenche l'animation 100px avant l'élément
-            easing: 'ease-out-cubic', // Courbe d'animation fluide
-        });
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // Mobile Menu Toggle
+        // Initialize AOS
+        if (window.AOS) {
+            AOS.init({
+                once: true, // Animation ne se joue qu'une fois
+                offset: 100, // Déclenche l'animation 100px avant l'élément
+                easing: 'ease-out-cubic', // Courbe d'animation fluide
+                disable: prefersReducedMotion, // Respecte les préférences d'accessibilité
+            });
+        } else {
+            // CDN AOS indisponible : on retire les attributs pour que le CSS ne masque pas le contenu
+            document.querySelectorAll('[data-aos]').forEach(el => el.removeAttribute('data-aos'));
+        }
+
+        // Année courante dans le footer
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle (avec transition)
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        // Smooth scroll close menu
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
-
-        // Form simulation
-        function showSuccess() {
-            const form = document.querySelector('form');
-            const msg = document.getElementById('success-msg');
-            const btn = form.querySelector('button');
-
-            btn.innerHTML = '<i class="ph ph-spinner animate-spin"></i> Envoi...';
-            btn.disabled;
-            setTimeout(() => {
-                form.reset();
-                form.style.display = 'none';
-                msg.classList.remove('hidden');
-            }, 1500);
+        function toggleMenu(open) {
+            menu.classList.toggle('max-h-0', !open);
+            menu.classList.toggle('opacity-0', !open);
+            menu.classList.toggle('max-h-96', open);
+            menu.classList.toggle('opacity-100', open);
+            btn.setAttribute('aria-expanded', open);
+            btn.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
         }
+
+        btn.addEventListener('click', () => {
+            toggleMenu(btn.getAttribute('aria-expanded') !== 'true');
+        });
+
+        // Ferme le menu mobile après un clic sur un lien
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+
+        // Scroll-spy : surligne le lien de la section visible
+        const navLinks = document.querySelectorAll('[data-navlink]');
+        const sections = [...navLinks].map(link => document.querySelector(link.hash)).filter(Boolean);
+
+        const spy = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                navLinks.forEach(link => {
+                    const active = link.hash === '#' + entry.target.id;
+                    link.classList.toggle('text-blue-700', active);
+                    link.classList.toggle('text-slate-600', !active);
+                });
+            });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+
+        sections.forEach(section => spy.observe(section));
 
         // Video Sound Toggle
         const video = document.getElementById('hero-video');
         const soundToggle = document.getElementById('sound-toggle');
         const soundIcon = document.getElementById('sound-icon');
+
+        // Pas d'autoplay vidéo si l'utilisateur préfère réduire les animations
+        if (prefersReducedMotion) {
+            video.pause();
+        }
 
         soundToggle.addEventListener('click', () => {
             if (video.muted) {
@@ -471,11 +508,13 @@
                 soundIcon.classList.remove('ph-speaker-slash');
                 soundIcon.classList.add('ph-speaker-high');
                 soundToggle.title = 'Couper le son';
+                soundToggle.setAttribute('aria-label', 'Couper le son de la vidéo');
             } else {
                 video.muted = true;
                 soundIcon.classList.remove('ph-speaker-high');
                 soundIcon.classList.add('ph-speaker-slash');
                 soundToggle.title = 'Activer le son';
+                soundToggle.setAttribute('aria-label', 'Activer le son de la vidéo');
             }
         });
     </script>
