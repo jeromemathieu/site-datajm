@@ -5,5 +5,11 @@
 // tente une étape de build npm et le déploiement échoue.
 module.exports = {
   content: ['./*.html'],
-  theme: { extend: {} },
+  theme: {
+    extend: {
+      fontFamily: {
+        display: ['"Space Grotesk"', 'Inter', 'sans-serif'],
+      },
+    },
+  },
 };
