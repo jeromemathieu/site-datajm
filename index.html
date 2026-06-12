@@ -8,7 +8,7 @@
     <meta name="description"
         content="Consultant indépendant spécialisé SAP : modélisation BW/4HANA, Analytics & BI (SAC, BI Platform, AfO), gouvernance et qualité de données. Basé à Paris, disponible en remote.">
     <link rel="canonical" href="https://datajm.fr/">
-    <meta name="theme-color" content="#0e2a47">
+    <meta name="theme-color" content="#020617">
     <!-- Open Graph / Réseaux sociaux -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://datajm.fr/">
@@ -34,12 +34,20 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <!-- AOS Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
+        }
+
+        /* Trame de fond façon grille technique */
+        .bg-grid {
+            background-image:
+                linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+            background-size: 56px 56px;
         }
     </style>
     <!-- Données structurées pour les moteurs de recherche -->
@@ -66,29 +74,32 @@
 </head>
 
 
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-slate-950 text-slate-300 antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <nav class="fixed w-full z-50 bg-slate-950/70 backdrop-blur-xl border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="#accueil" class="flex items-center gap-2">
-                    <img src="logo-datajm.webp" alt="DataJM - Consultant Expert Data SAP" width="131" height="96" class="h-12 w-auto">
+                <a href="#accueil" class="flex items-center gap-3">
+                    <span class="bg-white rounded-xl p-1.5 shadow-lg shadow-cyan-500/10">
+                        <img src="logo-datajm.webp" alt="DataJM - Consultant Expert Data SAP" width="131" height="96" class="h-9 w-auto">
+                    </span>
                 </a>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex items-center gap-8">
                     <a href="#accueil" data-navlink
-                        class="text-slate-600 hover:text-blue-700 font-medium transition">Accueil</a>
+                        class="text-slate-300 hover:text-white text-sm font-medium transition">Accueil</a>
                     <a href="#expertise" data-navlink
-                        class="text-slate-600 hover:text-blue-700 font-medium transition">Expertise SAP</a>
+                        class="text-slate-300 hover:text-white text-sm font-medium transition">Expertise SAP</a>
                     <a href="#pourquoi-moi" data-navlink
-                        class="text-slate-600 hover:text-blue-700 font-medium transition">Pourquoi DataJM ?</a>
+                        class="text-slate-300 hover:text-white text-sm font-medium transition">Pourquoi DataJM ?</a>
                 </div>
                 <a href="#contact"
-                    class="hidden md:block bg-blue-700 hover:bg-blue-800 text-white px-6 py-2.5 rounded-full font-semibold transition shadow-lg shadow-blue-700/20">
+                    class="hidden md:inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-400 hover:to-cyan-300 text-slate-950 px-6 py-2.5 rounded-full text-sm font-bold transition shadow-lg shadow-cyan-500/25">
                     Me Contacter
+                    <i class="ph ph-arrow-right" aria-hidden="true"></i>
                 </a>
                 <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2" aria-label="Ouvrir le menu"
+                <button id="mobile-menu-btn" class="md:hidden text-slate-300 p-2" aria-label="Ouvrir le menu"
                     aria-expanded="false" aria-controls="mobile-menu">
                     <i class="ph ph-list text-3xl" aria-hidden="true"></i>
                 </button>
@@ -96,166 +107,155 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu"
-            class="md:hidden bg-white border-t border-slate-100 absolute w-full overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-out">
+            class="md:hidden bg-slate-950/95 backdrop-blur-xl border-t border-white/10 absolute w-full overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-out">
             <div class="flex flex-col px-4 py-4 space-y-4">
-                <a href="#accueil" class="text-slate-600 font-medium">Accueil</a>
-                <a href="#expertise" class="text-slate-600 font-medium">Expertise SAP</a>
-                <a href="#pourquoi-moi" class="text-slate-600 font-medium">Pourquoi DataJM ?</a>
-                <a href="#contact" class="text-blue-700 font-bold">Me Contacter</a>
+                <a href="#accueil" class="text-slate-300 font-medium">Accueil</a>
+                <a href="#expertise" class="text-slate-300 font-medium">Expertise SAP</a>
+                <a href="#pourquoi-moi" class="text-slate-300 font-medium">Pourquoi DataJM ?</a>
+                <a href="#contact" class="text-cyan-300 font-bold">Me Contacter</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="accueil" class="relative isolate pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-900">
+    <section id="accueil" class="relative isolate pt-36 pb-24 lg:pt-52 lg:pb-36 overflow-hidden bg-slate-950">
         <!-- Video Background -->
         <video id="hero-video" autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-20">
             <source src="video.MP4" type="video/mp4">
         </video>
-        <!-- Dark Overlay for readability -->
-        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-blue-900/60 to-slate-900/80 -z-10"></div>
+        <!-- Voile sombre + fondu vers le fond de page -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/75 to-slate-950 -z-10"></div>
+        <div class="absolute inset-0 bg-grid -z-10" aria-hidden="true"></div>
+        <!-- Halos lumineux -->
+        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[640px] h-[640px] rounded-full bg-blue-600/20 blur-3xl -z-10" aria-hidden="true"></div>
+        <div class="absolute bottom-0 right-0 w-[420px] h-[420px] rounded-full bg-cyan-500/10 blur-3xl -z-10" aria-hidden="true"></div>
 
         <!-- Sound Toggle Button -->
         <button id="sound-toggle"
-            class="absolute bottom-32 md:bottom-40 right-6 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition duration-300 border border-white/30"
+            class="absolute bottom-10 right-6 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition duration-300 border border-white/15"
             title="Activer le son" aria-label="Activer le son de la vidéo">
             <i id="sound-icon" class="ph ph-speaker-slash text-xl" aria-hidden="true"></i>
         </button>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div data-aos="fade-down" data-aos-duration="800"
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/30 border border-blue-400/30 text-blue-100 text-sm font-semibold mb-8 backdrop-blur-sm">
-                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                Consultant Indépendant Disponible
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/25 text-cyan-200 text-sm font-medium mb-8 backdrop-blur-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Consultant indépendant · Disponible
             </div>
             <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"
-                class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-tight">
-                Valorisez vos données <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-200">SAP &
-                    Analytics</span>
+                class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight leading-[1.05]">
+                Valorisez vos données<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-300">SAP & Analytics</span>
             </h1>
             <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"
-                class="text-xl text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Expertise technique et fonctionnelle pour vos projets de data, migration, qualité de données et
-                reporting.
+                class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Expertise technique et fonctionnelle pour vos projets de data, migration, qualité de données et reporting.
                 L'agilité d'un freelance, la rigueur d'un expert.
             </p>
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600"
-                class="flex flex-col sm:flex-row justify-center gap-4">
+                class="flex flex-col sm:flex-row justify-center gap-4 mb-14">
                 <a href="#contact"
-                    class="bg-white text-blue-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition shadow-xl">
+                    class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-400 hover:to-cyan-300 text-slate-950 px-8 py-4 rounded-full font-bold text-lg transition shadow-xl shadow-cyan-500/25">
                     Discutons de votre projet
+                    <i class="ph ph-arrow-right" aria-hidden="true"></i>
                 </a>
                 <a href="#expertise"
-                    class="px-8 py-4 rounded-full font-bold text-lg text-white border border-white/30 hover:bg-white/10 transition backdrop-blur-sm">
+                    class="inline-flex items-center justify-center px-8 py-4 rounded-full font-bold text-lg text-white border border-white/15 bg-white/5 hover:bg-white/10 transition backdrop-blur-sm">
                     Découvrir mes services
                 </a>
             </div>
-        </div>
-
-        <!-- Geometric Separator -->
-        <div class="absolute bottom-0 w-full z-10">
-            <svg class="relative block w-full h-[80px] md:h-[120px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <!-- Layered triangles effect -->
-                <polygon points="0,120 1200,120 1200,80 0,40" class="fill-slate-100 opacity-50"></polygon>
-                <polygon points="0,120 1200,120 1200,60 0,100" class="fill-slate-50"></polygon>
-            </svg>
+            <!-- Stack technique -->
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="750"
+                class="flex flex-wrap justify-center gap-2 text-sm">
+                <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">SAP BW/4HANA</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">SAP Analytics Cloud</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">ABAP / AMDP</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">CDS Views</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">MDG</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">Analysis for Office</span>
+            </div>
         </div>
     </section>
 
     <!-- About / Intro -->
-    <section class="py-16 bg-slate-50">
-        <div class="max-w-4xl mx-auto px-4 text-center">
+    <section class="py-20 relative">
+        <div class="max-w-3xl mx-auto px-4 text-center">
             <h2 data-aos="fade-up" data-aos-duration="800"
-                class="text-3xl font-bold text-slate-900 mb-6">DataJM : L'Expertise SAP sur-mesure</h2>
+                class="font-display text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">DataJM : l'expertise SAP sur-mesure</h2>
             <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="200"
-                class="text-lg text-slate-600 leading-relaxed">
+                class="text-lg text-slate-400 leading-relaxed">
                 Je suis consultant indépendant spécialisé dans l'écosystème SAP. J'accompagne les entreprises dans la
                 valorisation de leur patrimoine de données. Contrairement aux grandes ESN, je suis votre
-                <strong>interlocuteur unique</strong>, garantissant une compréhension fine de vos enjeux métiers et une
-                réactivité immédiate.
+                <strong class="text-cyan-300 font-semibold">interlocuteur unique</strong>, garantissant une compréhension fine de vos enjeux
+                métiers et une réactivité immédiate.
             </p>
         </div>
     </section>
 
     <!-- Services / Expertise Section -->
-    <section id="expertise" class="py-20 bg-white scroll-mt-20">
+    <section id="expertise" class="py-24 scroll-mt-20 relative">
+        <div class="absolute top-1/3 left-0 w-[420px] h-[420px] rounded-full bg-blue-600/10 blur-3xl -z-10" aria-hidden="true"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span data-aos="fade-up" data-aos-duration="600"
-                    class="text-blue-600 font-bold tracking-wider uppercase text-sm">Mon Savoir-Faire</span>
+                    class="text-cyan-400 font-semibold tracking-widest uppercase text-xs">Mon savoir-faire</span>
                 <h2 data-aos="fade-up" data-aos-duration="600" data-aos-delay="100"
-                    class="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Expertise Data & SAP</h2>
+                    class="font-display text-3xl md:text-5xl font-bold text-white mt-3 tracking-tight">Expertise Data & SAP</h2>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-6">
                 <!-- Service 1 -->
                 <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="0"
-                    class="group p-8 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-2xl transition duration-300 border border-slate-100 hover:border-blue-100 relative overflow-hidden">
+                    class="group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-blue-400/40 hover:bg-white/[0.07] transition duration-300">
                     <div
-                        class="absolute top-0 right-0 bg-blue-600 w-24 h-24 rounded-bl-full -mr-4 -mt-4 opacity-5 group-hover:opacity-10 transition">
+                        class="w-14 h-14 bg-gradient-to-br from-blue-500/25 to-cyan-400/15 border border-blue-400/20 text-blue-300 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="ph ph-arrows-left-right text-3xl" aria-hidden="true"></i>
                     </div>
-                    <div
-                        class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
-                        <i class="ph ph-arrows-left-right text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Modélisation de Données</h3>
-                    <p class="text-slate-600 mb-4">
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Modélisation de Données</h3>
+                    <p class="text-slate-400 mb-5">
                         Modélisation de données sur SAP BW4/HANA. Maîtrise des différents types de migration (brownfield, ...).
                     </p>
-                    <ul class="text-sm text-slate-500 space-y-2">
-                        <li class="flex items-center gap-2"><i class="ph ph-check text-green-500"></i> Flux de données ABAP ou AMDP
-                        </li>
-                        <li class="flex items-center gap-2"><i class="ph ph-check text-green-500"></i> Mapping</li>
-                        <li class="flex items-center gap-2"><i class="ph ph-check text-green-500"></i> CDS / SQL Views</li>
+                    <ul class="text-sm text-slate-400 space-y-2.5">
+                        <li class="flex items-center gap-2.5"><i class="ph ph-check-circle text-blue-400 text-lg" aria-hidden="true"></i> Flux de données ABAP ou AMDP</li>
+                        <li class="flex items-center gap-2.5"><i class="ph ph-check-circle text-blue-400 text-lg" aria-hidden="true"></i> Mapping</li>
+                        <li class="flex items-center gap-2.5"><i class="ph ph-check-circle text-blue-400 text-lg" aria-hidden="true"></i> CDS / SQL Views</li>
                     </ul>
                 </div>
 
                 <!-- Service 2 -->
                 <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="150"
-                    class="group p-8 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-2xl transition duration-300 border border-slate-100 hover:border-blue-100 relative overflow-hidden">
+                    class="group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-violet-400/40 hover:bg-white/[0.07] transition duration-300">
                     <div
-                        class="absolute top-0 right-0 bg-purple-600 w-24 h-24 rounded-bl-full -mr-4 -mt-4 opacity-5 group-hover:opacity-10 transition">
+                        class="w-14 h-14 bg-gradient-to-br from-violet-500/25 to-fuchsia-400/15 border border-violet-400/20 text-violet-300 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="ph ph-chart-bar text-3xl" aria-hidden="true"></i>
                     </div>
-                    <div
-                        class="w-14 h-14 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
-                        <i class="ph ph-chart-bar text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Analytics & BI</h3>
-                    <p class="text-slate-600 mb-4">
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Analytics & BI</h3>
+                    <p class="text-slate-400 mb-5">
                         Conception de tableaux de bord pour transformer la donnée brute en décision stratégique.
                     </p>
-                    <ul class="text-sm text-slate-500 space-y-2">
-                        <li class="flex items-center gap-2"><i class="ph ph-check text-purple-500"></i> SAP Analytics
-                            Cloud (SAC)</li>
-                        <li class="flex items-center gap-2"><i class="ph ph-check text-purple-500"></i> SAP BI Platform
-                        </li>
-                        <li class="flex items-center gap-2"><i class="ph ph-check text-purple-500"></i> Analysis for Office
-                        </li>
+                    <ul class="text-sm text-slate-400 space-y-2.5">
+                        <li class="flex items-center gap-2.5"><i class="ph ph-check-circle text-violet-400 text-lg" aria-hidden="true"></i> SAP Analytics Cloud (SAC)</li>
+                        <li class="flex items-center gap-2.5"><i class="ph ph-check-circle text-violet-400 text-lg" aria-hidden="true"></i> SAP BI Platform</li>
+                        <li class="flex items-center gap-2.5"><i class="ph ph-check-circle text-violet-400 text-lg" aria-hidden="true"></i> Analysis for Office</li>
                     </ul>
                 </div>
 
                 <!-- Service 3 -->
                 <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300"
-                    class="group p-8 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-2xl transition duration-300 border border-slate-100 hover:border-blue-100 relative overflow-hidden">
+                    class="group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-teal-400/40 hover:bg-white/[0.07] transition duration-300">
                     <div
-                        class="absolute top-0 right-0 bg-teal-600 w-24 h-24 rounded-bl-full -mr-4 -mt-4 opacity-5 group-hover:opacity-10 transition">
+                        class="w-14 h-14 bg-gradient-to-br from-teal-500/25 to-emerald-400/15 border border-teal-400/20 text-teal-300 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="ph ph-shield-check text-3xl" aria-hidden="true"></i>
                     </div>
-                    <div
-                        class="w-14 h-14 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
-                        <i class="ph ph-shield-check text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Gouvernance & Qualité</h3>
-                    <p class="text-slate-600 mb-4">
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Gouvernance & Qualité</h3>
+                    <p class="text-slate-400 mb-5">
                         Mise en place de processus pour garantir l'intégrité de vos Data
                     </p>
-                    <ul class="text-sm text-slate-500 space-y-2">
-                        <li class="flex items-center gap-2"><i class="ph ph-check text-teal-500"></i> Master Data
-                            Governance (MDG)</li>
-                        <li class="flex items-center gap-2"><i class="ph ph-check text-teal-500"></i> Audit de qualité
-                        </li>
-                        <li class="flex items-center gap-2"><i class="ph ph-check text-teal-500"></i> Dictionnaire de
-                            données</li>
+                    <ul class="text-sm text-slate-400 space-y-2.5">
+                        <li class="flex items-center gap-2.5"><i class="ph ph-check-circle text-teal-400 text-lg" aria-hidden="true"></i> Master Data Governance (MDG)</li>
+                        <li class="flex items-center gap-2.5"><i class="ph ph-check-circle text-teal-400 text-lg" aria-hidden="true"></i> Audit de qualité</li>
+                        <li class="flex items-center gap-2.5"><i class="ph ph-check-circle text-teal-400 text-lg" aria-hidden="true"></i> Dictionnaire de données</li>
                     </ul>
                 </div>
             </div>
@@ -263,60 +263,60 @@
     </section>
 
     <!-- Why Choose Me Section -->
-    <section id="pourquoi-moi" class="py-20 bg-slate-900 text-white relative overflow-hidden scroll-mt-20">
-        <div
-            class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+    <section id="pourquoi-moi" class="py-24 scroll-mt-20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[480px] h-[480px] rounded-full bg-violet-600/10 blur-3xl -z-10" aria-hidden="true"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-14 items-center">
                 <div>
+                    <span data-aos="fade-right" data-aos-duration="600"
+                        class="text-cyan-400 font-semibold tracking-widest uppercase text-xs">L'avantage indépendant</span>
                     <h2 data-aos="fade-right" data-aos-duration="800"
-                        class="text-3xl md:text-4xl font-bold mb-6">Pourquoi choisir DataJM ?</h2>
+                        class="font-display text-3xl md:text-5xl font-bold text-white mt-3 mb-6 tracking-tight">Pourquoi choisir DataJM ?</h2>
                     <p data-aos="fade-right" data-aos-duration="800" data-aos-delay="100"
-                        class="text-slate-300 mb-8 text-lg">
+                        class="text-slate-400 mb-10 text-lg">
                         Dans un projet SAP, la compétence ne suffit pas. Il faut de la compréhension métier et de la
                         flexibilité. En tant qu'indépendant, je vous offre ce que les grandes structures ne peuvent pas
                         garantir.
                     </p>
 
-                    <div class="space-y-6">
+                    <div class="space-y-7">
                         <div data-aos="fade-right" data-aos-duration="800" data-aos-delay="200"
                             class="flex items-start gap-4">
-                            <div class="bg-blue-600 p-2 rounded-lg shrink-0">
-                                <i class="ph ph-lightning text-xl text-white"></i>
+                            <div class="bg-gradient-to-br from-blue-500/25 to-cyan-400/15 border border-blue-400/20 text-cyan-300 p-2.5 rounded-xl shrink-0">
+                                <i class="ph ph-lightning text-xl" aria-hidden="true"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">Réactivité & Agilité</h4>
-                                <p class="text-slate-400 text-sm">Pas de niveaux hiérarchiques. Une prise de décision
+                                <h4 class="font-display font-bold text-lg text-white">Réactivité & Agilité</h4>
+                                <p class="text-slate-400 text-sm mt-1">Pas de niveaux hiérarchiques. Une prise de décision
                                     rapide et une adaptation immédiate à vos contraintes.</p>
                             </div>
                         </div>
                         <div data-aos="fade-right" data-aos-duration="800" data-aos-delay="300"
                             class="flex items-start gap-4">
-                            <div class="bg-blue-600 p-2 rounded-lg shrink-0">
-                                <i class="ph ph-handshake text-xl text-white"></i>
+                            <div class="bg-gradient-to-br from-blue-500/25 to-cyan-400/15 border border-blue-400/20 text-cyan-300 p-2.5 rounded-xl shrink-0">
+                                <i class="ph ph-handshake text-xl" aria-hidden="true"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">Relation Directe</h4>
-                                <p class="text-slate-400 text-sm">Vous parlez directement à l'expert qui réalise la
+                                <h4 class="font-display font-bold text-lg text-white">Relation Directe</h4>
+                                <p class="text-slate-400 text-sm mt-1">Vous parlez directement à l'expert qui réalise la
                                     mission. Pas de commercial intermédiaire.</p>
                             </div>
                         </div>
                         <div data-aos="fade-right" data-aos-duration="800" data-aos-delay="400"
                             class="flex items-start gap-4">
-                            <div class="bg-blue-600 p-2 rounded-lg shrink-0">
-                                <i class="ph ph-wallet text-xl text-white"></i>
+                            <div class="bg-gradient-to-br from-blue-500/25 to-cyan-400/15 border border-blue-400/20 text-cyan-300 p-2.5 rounded-xl shrink-0">
+                                <i class="ph ph-wallet text-xl" aria-hidden="true"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">Coûts Maîtrisés</h4>
-                                <p class="text-slate-400 text-sm">Une structure légère me permet de proposer des tarifs
+                                <h4 class="font-display font-bold text-lg text-white">Coûts Maîtrisés</h4>
+                                <p class="text-slate-400 text-sm mt-1">Une structure légère me permet de proposer des tarifs
                                     compétitifs pour une expertise senior.</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200"
-                    class="bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl relative">
+                    class="bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-sm relative">
                     <!-- Schéma : données dispersées -> DataJM -> tableau de bord unifié -->
                     <p class="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">Complexité · Données dispersées</p>
                     <svg viewBox="0 0 400 310" class="w-full h-auto" role="img"
@@ -360,8 +360,8 @@
                     </svg>
                     <p class="text-xs font-semibold uppercase tracking-widest text-slate-500 mt-3 text-right">Clarté · Une seule vision</p>
 
-                    <div class="mt-8 pt-8 border-t border-slate-700 text-center">
-                        <p class="text-white font-semibold text-lg">"DataJM transforme la complexité en clarté."</p>
+                    <div class="mt-8 pt-8 border-t border-white/10 text-center">
+                        <p class="text-white font-display font-semibold text-lg">"DataJM transforme la complexité en clarté."</p>
                     </div>
                 </div>
             </div>
@@ -369,73 +369,78 @@
     </section>
 
     <!-- CTA / Contact Section -->
-    <section id="contact" class="py-20 bg-blue-50 scroll-mt-20">
+    <section id="contact" class="py-24 scroll-mt-20 relative overflow-hidden">
+        <div class="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[720px] h-[480px] rounded-full bg-blue-600/15 blur-3xl -z-10" aria-hidden="true"></div>
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div data-aos="zoom-in" data-aos-duration="800"
-                class="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div class="bg-blue-800 p-8 text-center">
-                    <h2 class="text-3xl font-bold text-white">Démarrons un projet</h2>
-                    <p class="text-blue-200 mt-2">Disponibilité, TJM, Expertise... Posez-moi vos questions.</p>
-                </div>
-                <div class="p-8 md:p-12">
-                    <form action="https://formspree.io/f/mwpzvzyj" method="POST" class="space-y-6">
-                        <!-- Champ anti-spam invisible (honeypot Formspree) -->
-                        <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
-                                <label for="contact-name" class="block text-sm font-medium text-slate-700 mb-2">Nom complet</label>
-                                <input type="text" name="name" id="contact-name" required autocomplete="name"
-                                    class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-slate-50"
-                                    placeholder="Jean Dupont">
-                            </div>
-                            <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
-                                <label for="contact-email" class="block text-sm font-medium text-slate-700 mb-2">Email professionnel</label>
-                                <input type="email" name="email" id="contact-email" required autocomplete="email"
-                                    class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-slate-50"
-                                    placeholder="jean@entreprise.com">
-                            </div>
-                        </div>
-                        <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
-                            <label for="contact-subject" class="block text-sm font-medium text-slate-700 mb-2">Sujet</label>
-                            <select name="subject" id="contact-subject"
-                                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-slate-50">
-                                <option value="Demande d'informations">Demande d'informations</option>
-                                <option value="Migration BW4/HANA">Migration BW4/HANA</option>
-                                <option value="Analytics/BI (SAC, SAP BI, AFO)">Besoin Analytics / BI</option>
-                                <option value="Autre">Autre</option>
-                            </select>
-                        </div>
-                        <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
-                            <label for="contact-message" class="block text-sm font-medium text-slate-700 mb-2">Message</label>
-                            <textarea name="message" id="contact-message" rows="4" required
-                                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-slate-50"
-                                placeholder="Décrivez brièvement votre besoin..."></textarea>
-                        </div>
-                        <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="500">
-                            <button type="submit"
-                                class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 rounded-lg transition duration-300 shadow-lg transform hover:-translate-y-1">
-                                Envoyer le message
-                            </button>
-                        </div>
-                    </form>
+            <div class="text-center mb-12">
+                <span data-aos="fade-up" data-aos-duration="600"
+                    class="text-cyan-400 font-semibold tracking-widest uppercase text-xs">Contact</span>
+                <h2 data-aos="fade-up" data-aos-duration="600" data-aos-delay="100"
+                    class="font-display text-3xl md:text-5xl font-bold text-white mt-3 tracking-tight">Démarrons un projet</h2>
+                <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" class="text-slate-400 mt-4">
+                    Disponibilité, TJM, Expertise... Posez-moi vos questions.</p>
+            </div>
 
-                    <!-- Note : Le message de confirmation sera géré automatiquement par Formspree -->
-                </div>
+            <div data-aos="zoom-in" data-aos-duration="800"
+                class="bg-white/5 border border-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12">
+                <form action="https://formspree.io/f/mwpzvzyj" method="POST" class="space-y-6">
+                    <!-- Champ anti-spam invisible (honeypot Formspree) -->
+                    <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="contact-name" class="block text-sm font-medium text-slate-300 mb-2">Nom complet</label>
+                            <input type="text" name="name" id="contact-name" required autocomplete="name"
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-slate-500 focus:ring-2 focus:ring-cyan-400/60 focus:border-cyan-400 outline-none transition"
+                                placeholder="Jean Dupont">
+                        </div>
+                        <div>
+                            <label for="contact-email" class="block text-sm font-medium text-slate-300 mb-2">Email professionnel</label>
+                            <input type="email" name="email" id="contact-email" required autocomplete="email"
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-slate-500 focus:ring-2 focus:ring-cyan-400/60 focus:border-cyan-400 outline-none transition"
+                                placeholder="jean@entreprise.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="contact-subject" class="block text-sm font-medium text-slate-300 mb-2">Sujet</label>
+                        <select name="subject" id="contact-subject"
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white focus:ring-2 focus:ring-cyan-400/60 focus:border-cyan-400 outline-none transition [&>option]:bg-slate-900 [&>option]:text-white">
+                            <option value="Demande d'informations">Demande d'informations</option>
+                            <option value="Migration BW4/HANA">Migration BW4/HANA</option>
+                            <option value="Analytics/BI (SAC, SAP BI, AFO)">Besoin Analytics / BI</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="contact-message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
+                        <textarea name="message" id="contact-message" rows="4" required
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-slate-500 focus:ring-2 focus:ring-cyan-400/60 focus:border-cyan-400 outline-none transition"
+                            placeholder="Décrivez brièvement votre besoin..."></textarea>
+                    </div>
+                    <div>
+                        <button type="submit"
+                            class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-400 hover:to-cyan-300 text-slate-950 font-bold py-4 rounded-xl transition duration-300 shadow-lg shadow-cyan-500/25">
+                            Envoyer le message
+                            <i class="ph ph-paper-plane-tilt" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Note : Le message de confirmation sera géré automatiquement par Formspree -->
             </div>
 
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300"
-                class="mt-12 flex flex-col md:flex-row justify-center items-center gap-8 text-slate-500">
+                class="mt-12 flex flex-col md:flex-row justify-center items-center gap-8 text-slate-400">
                 <div class="flex items-center gap-2">
-                    <i class="ph ph-envelope-simple text-xl"></i>
-                    <span><a href="mailto:contact@datajm.fr" class="hover:text-blue-700 transition">contact@datajm.fr</a></span>
+                    <i class="ph ph-envelope-simple text-xl text-cyan-400" aria-hidden="true"></i>
+                    <span><a href="mailto:contact@datajm.fr" class="hover:text-white transition">contact@datajm.fr</a></span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <i class="ph ph-linkedin-logo text-xl"></i>
+                    <i class="ph ph-linkedin-logo text-xl text-cyan-400" aria-hidden="true"></i>
                     <a href="https://www.linkedin.com/in/j%C3%A9rome-mathieu-42648a1/" target="_blank" rel="noopener"
-                        class="hover:text-blue-700 transition">LinkedIn Profile</a>
+                        class="hover:text-white transition">LinkedIn Profile</a>
                 </div>
                 <div class="flex items-center gap-2">
-                    <i class="ph ph-map-pin text-xl"></i>
+                    <i class="ph ph-map-pin text-xl text-cyan-400" aria-hidden="true"></i>
                     <span>Paris / Remote</span>
                 </div>
             </div>
@@ -443,14 +448,14 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 py-8">
+    <footer class="border-t border-white/10 py-10">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="text-slate-500 text-sm">
                 &copy; <span id="footer-year">2026</span> DataJM. Tous droits réservés.<br>
-                <a href="mentions-legales.html" class="text-blue-600 hover:underline">Mentions légales</a> ·
-                <a href="mentions-legales.html#politique-confidentialite" class="text-blue-600 hover:underline">Politique de confidentialité</a>
+                <a href="mentions-legales.html" class="text-cyan-400 hover:text-cyan-300 hover:underline">Mentions légales</a> ·
+                <a href="mentions-legales.html#politique-confidentialite" class="text-cyan-400 hover:text-cyan-300 hover:underline">Politique de confidentialité</a>
             </p>
-            <p class="text-xs text-slate-400 mt-2">
+            <p class="text-xs text-slate-600 mt-3">
                 Expertise SAP indépendante. SAP est une marque déposée de SAP SE. DataJM n'est pas affilié à SAP SE.
             </p>
         </div>
@@ -508,8 +513,8 @@
                 if (!entry.isIntersecting) return;
                 navLinks.forEach(link => {
                     const active = link.hash === '#' + entry.target.id;
-                    link.classList.toggle('text-blue-700', active);
-                    link.classList.toggle('text-slate-600', !active);
+                    link.classList.toggle('text-cyan-300', active);
+                    link.classList.toggle('text-slate-300', !active);
                 });
             });
         }, { rootMargin: '-40% 0px -55% 0px' });
