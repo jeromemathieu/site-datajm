@@ -1,0 +1,12 @@
+{
+	// Configuration Cloudflare Workers : site servi en assets statiques.
+	// Le nom doit correspondre au service existant dans le dashboard.
+	"name": "site-datajm",
+	"compatibility_date": "2026-06-12",
+	"assets": {
+		"directory": ".",
+		// Sert /404.html pour les URL inexistantes
+		"not_found_handling": "404-page",
+		"html_handling": "auto-trailing-slash"
+	}
+}

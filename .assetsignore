@@ -1,0 +1,9 @@
+# Fichiers à ne pas téléverser comme assets du site
+.git
+.gitignore
+.assetsignore
+wrangler.jsonc
+tailwind-input.css
+tailwind.config.js
+logodatajm.png
+logodatajm.JPEG
