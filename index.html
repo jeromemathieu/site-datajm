@@ -31,10 +31,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="tailwind.css">
+    <!-- Polices auto-hébergées (RGPD : aucune requête vers Google) -->
+    <link rel="stylesheet" href="fonts.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <!-- AOS Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
@@ -120,8 +119,9 @@
     <!-- Hero Section -->
     <section id="accueil" class="relative isolate pt-36 pb-24 lg:pt-52 lg:pb-36 overflow-hidden bg-slate-950">
         <!-- Video Background -->
-        <video id="hero-video" autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover -z-20">
-            <source src="video.MP4" type="video/mp4">
+        <video id="hero-video" autoplay muted loop playsinline preload="metadata" poster="hero-poster.webp"
+            class="absolute inset-0 w-full h-full object-cover -z-20">
+            <source src="video.mp4" type="video/mp4">
         </video>
         <!-- Voile sombre + fondu vers le fond de page -->
         <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/75 to-slate-950 -z-10"></div>
@@ -176,6 +176,13 @@
                 <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400">Analysis for Office</span>
             </div>
         </div>
+
+        <!-- Indicateur de défilement -->
+        <a href="#expertise" aria-label="Faire défiler vers les services"
+            class="hidden sm:flex absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex-col items-center gap-1 text-slate-400 hover:text-cyan-300 transition">
+            <span class="text-[11px] uppercase tracking-widest">Défiler</span>
+            <i class="ph ph-caret-down text-2xl animate-bounce" aria-hidden="true"></i>
+        </a>
     </section>
 
     <!-- About / Intro -->
@@ -321,6 +328,15 @@
                     <p class="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">Complexité · Données dispersées</p>
                     <svg viewBox="0 0 400 310" class="w-full h-auto" role="img"
                         aria-label="Schéma : des données dispersées entre SAP, Excel et fichiers plats sont transformées par DataJM en un tableau de bord unifié">
+                        <style>
+                            @keyframes flux-flow { to { stroke-dashoffset: -40; } }
+                            @keyframes node-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+                            .flux { animation: flux-flow 1.4s linear infinite; }
+                            .out-arrow { animation: node-pulse 2s ease-in-out infinite; }
+                            @media (prefers-reduced-motion: reduce) {
+                                .flux, .out-arrow { animation: none; }
+                            }
+                        </style>
                         <!-- Sources de données -->
                         <g font-size="12" font-weight="600">
                             <rect x="8" y="2" width="112" height="38" rx="8" fill="#0f172a" stroke="#475569"/>
@@ -330,18 +346,20 @@
                             <rect x="280" y="2" width="112" height="38" rx="8" fill="#0f172a" stroke="#475569"/>
                             <text x="336" y="26" text-anchor="middle" fill="#94a3b8">Fichiers plats</text>
                         </g>
-                        <!-- Flux emmêlés : la complexité -->
+                        <!-- Flux emmêlés (animés) : la complexité -->
                         <g fill="none" stroke-width="2" stroke-dasharray="5 5" opacity="0.8">
-                            <path d="M64,40 C64,85 330,60 212,126" stroke="#f87171"/>
-                            <path d="M200,40 C200,75 70,95 188,127" stroke="#fbbf24"/>
-                            <path d="M336,40 C336,90 90,55 206,124" stroke="#f59e0b"/>
+                            <path class="flux" d="M64,40 C64,85 330,60 212,126" stroke="#f87171"/>
+                            <path class="flux" d="M200,40 C200,75 70,95 188,127" stroke="#fbbf24"/>
+                            <path class="flux" d="M336,40 C336,90 90,55 206,124" stroke="#f59e0b"/>
                         </g>
                         <!-- Nœud DataJM -->
                         <rect x="138" y="128" width="124" height="42" rx="21" fill="#2563eb" stroke="#60a5fa"/>
                         <text x="200" y="155" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">DataJM</text>
                         <!-- Flux unique et net : la clarté -->
-                        <line x1="200" y1="170" x2="200" y2="194" stroke="#38bdf8" stroke-width="2.5"/>
-                        <polygon points="193,193 207,193 200,203" fill="#38bdf8"/>
+                        <g class="out-arrow">
+                            <line x1="200" y1="170" x2="200" y2="194" stroke="#38bdf8" stroke-width="2.5"/>
+                            <polygon points="193,193 207,193 200,203" fill="#38bdf8"/>
+                        </g>
                         <!-- Tableau de bord unifié -->
                         <rect x="60" y="204" width="280" height="96" rx="10" fill="#0f172a" stroke="#334155"/>
                         <text x="200" y="223" text-anchor="middle" fill="#64748b" font-size="10" font-weight="600" letter-spacing="2">TABLEAU DE BORD UNIFIÉ</text>
@@ -383,7 +401,7 @@
 
             <div data-aos="zoom-in" data-aos-duration="800"
                 class="bg-white/5 border border-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12">
-                <form action="https://formspree.io/f/mwpzvzyj" method="POST" class="space-y-6">
+                <form id="contact-form" action="https://formspree.io/f/mwpzvzyj" method="POST" class="space-y-6">
                     <!-- Champ anti-spam invisible (honeypot Formspree) -->
                     <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="grid md:grid-cols-2 gap-6">
@@ -417,15 +435,16 @@
                             placeholder="Décrivez brièvement votre besoin..."></textarea>
                     </div>
                     <div>
-                        <button type="submit"
-                            class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-400 hover:to-cyan-300 text-slate-950 font-bold py-4 rounded-xl transition duration-300 shadow-lg shadow-cyan-500/25">
+                        <button type="submit" id="contact-submit"
+                            class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-400 hover:to-cyan-300 text-slate-950 font-bold py-4 rounded-xl transition duration-300 shadow-lg shadow-cyan-500/25 disabled:opacity-60 disabled:cursor-not-allowed">
                             Envoyer le message
                             <i class="ph ph-paper-plane-tilt" aria-hidden="true"></i>
                         </button>
                     </div>
                 </form>
 
-                <!-- Note : Le message de confirmation sera géré automatiquement par Formspree -->
+                <!-- Zone de statut (envoi AJAX) -->
+                <div id="form-status" role="status" aria-live="polite" class="hidden mt-6 rounded-xl p-4 text-sm"></div>
             </div>
 
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300"
@@ -544,6 +563,49 @@
                 soundIcon.classList.add('ph-speaker-slash');
                 soundToggle.title = 'Activer le son';
                 soundToggle.setAttribute('aria-label', 'Activer le son de la vidéo');
+            }
+        });
+
+        // Envoi du formulaire en AJAX (reste sur la page, message de statut)
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('form-status');
+        const submitBtn = document.getElementById('contact-submit');
+
+        function showStatus(ok, message) {
+            status.textContent = message;
+            status.classList.remove('hidden', 'bg-emerald-500/10', 'text-emerald-300', 'border', 'border-emerald-400/30', 'bg-red-500/10', 'text-red-300', 'border-red-400/30');
+            if (ok) {
+                status.classList.add('bg-emerald-500/10', 'text-emerald-300', 'border', 'border-emerald-400/30');
+            } else {
+                status.classList.add('bg-red-500/10', 'text-red-300', 'border', 'border-red-400/30');
+            }
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            const originalHtml = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="ph ph-spinner animate-spin" aria-hidden="true"></i> Envoi en cours...';
+            try {
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                    form.reset();
+                    showStatus(true, 'Merci ! Votre message a bien été envoyé. Je vous réponds rapidement.');
+                } else {
+                    const data = await res.json().catch(() => ({}));
+                    const msg = data.errors ? data.errors.map(er => er.message).join(', ')
+                        : "Une erreur est survenue. Réessayez ou écrivez-moi à contact@datajm.fr.";
+                    showStatus(false, msg);
+                }
+            } catch (err) {
+                showStatus(false, "Connexion impossible. Réessayez ou écrivez-moi à contact@datajm.fr.");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalHtml;
             }
         });
     </script>

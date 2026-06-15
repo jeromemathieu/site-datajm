@@ -13,10 +13,8 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="robots" content="noindex">
     <link rel="stylesheet" href="tailwind.css">
+    <link rel="stylesheet" href="fonts.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -28,18 +26,20 @@
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-slate-950 text-slate-300 antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <nav class="fixed w-full z-50 bg-slate-950/70 backdrop-blur-xl border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="index.html" class="flex items-center gap-2">
-                    <img src="logo-datajm.webp" alt="DataJM - Consultant Expert Data SAP" width="131" height="96" class="h-12 w-auto">
+                <a href="index.html" class="flex items-center gap-3">
+                    <span class="bg-white rounded-xl p-1.5 shadow-lg shadow-cyan-500/10">
+                        <img src="logo-datajm.webp" alt="DataJM - Consultant Expert Data SAP" width="131" height="96" class="h-9 w-auto">
+                    </span>
                 </a>
                 <a href="index.html"
-                    class="text-slate-600 hover:text-blue-700 font-medium transition flex items-center gap-2">
-                    <i class="ph ph-arrow-left"></i> Retour à l'accueil
+                    class="text-slate-300 hover:text-white font-medium transition flex items-center gap-2">
+                    <i class="ph ph-arrow-left" aria-hidden="true"></i> Retour à l'accueil
                 </a>
             </div>
         </div>
@@ -58,15 +58,15 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <!-- Mentions Légales -->
-            <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                    <i class="ph ph-identification-card text-blue-600"></i>
+            <div class="bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
+                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <i class="ph ph-identification-card text-cyan-400"></i>
                     Mentions Légales
                 </h2>
 
-                <div class="space-y-6 text-slate-600">
+                <div class="space-y-6 text-slate-400">
                     <div>
-                        <h3 class="font-semibold text-slate-900 mb-2">Éditeur du site</h3>
+                        <h3 class="font-semibold text-white mb-2">Éditeur du site</h3>
                         <p>
                             <strong>DataJM</strong><br>
                             <!-- ⚠️ À COMPLÉTER avec vos informations -->
@@ -78,28 +78,28 @@
                         <p class="mt-2">
                             <strong>Statut :</strong> SASU<br>
                             <strong>SIRET :</strong> 93318720500010<br>
-                            <strong>Email :</strong> <a href="mailto:contact@datajm.fr" class="text-blue-600 hover:underline">contact@datajm.fr</a>
+                            <strong>Email :</strong> <a href="mailto:contact@datajm.fr" class="text-cyan-400 hover:text-cyan-300 hover:underline">contact@datajm.fr</a>
                         </p>
                     </div>
 
                     <div>
-                        <h3 class="font-semibold text-slate-900 mb-2">Directeur de la publication</h3>
+                        <h3 class="font-semibold text-white mb-2">Directeur de la publication</h3>
                         <p>Jérôme MATHIEU</p>
                     </div>
 
                     <div>
-                        <h3 class="font-semibold text-slate-900 mb-2">Hébergement</h3>
+                        <h3 class="font-semibold text-white mb-2">Hébergement</h3>
                         <p>
                             <!-- ⚠️ À COMPLÉTER selon votre hébergeur -->
                             Hostinger<br>
                             Hostinger International Ltd.<br>
                             Ring Street, Ashton in Makerfield, WN4 0PN, United Kingdom<br>
-                            <a href="https://www.hostinger.fr" target="_blank" rel="noopener" class="text-blue-600 hover:underline">https://www.hostinger.fr</a>
+                            <a href="https://www.hostinger.fr" target="_blank" rel="noopener" class="text-cyan-400 hover:text-cyan-300 hover:underline">https://www.hostinger.fr</a>
                         </p>
                     </div>
 
                     <div>
-                        <h3 class="font-semibold text-slate-900 mb-2">Propriété intellectuelle</h3>
+                        <h3 class="font-semibold text-white mb-2">Propriété intellectuelle</h3>
                         <p>
                             L'ensemble du contenu de ce site (textes, images, graphismes, logo, icônes) est la propriété 
                             exclusive de DataJM, à l'exception des marques, logos ou contenus appartenant à d'autres 
@@ -118,24 +118,24 @@
             </div>
 
             <!-- Politique de Confidentialité -->
-            <div id="politique-confidentialite" class="bg-white rounded-2xl shadow-lg p-8 mb-8 scroll-mt-28">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                    <i class="ph ph-shield-check text-blue-600"></i>
+            <div id="politique-confidentialite" class="bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8 scroll-mt-28">
+                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <i class="ph ph-shield-check text-cyan-400"></i>
                     Politique de Confidentialité
                 </h2>
 
-                <div class="space-y-6 text-slate-600">
+                <div class="space-y-6 text-slate-400">
                     <div>
-                        <h3 class="font-semibold text-slate-900 mb-2">Responsable du traitement</h3>
+                        <h3 class="font-semibold text-white mb-2">Responsable du traitement</h3>
                         <p>
                             Le responsable du traitement des données personnelles est :<br>
                             <strong>Jérôme MATHIEU - DataJM</strong><br>
-                            Email : <a href="mailto:contact@datajm.fr" class="text-blue-600 hover:underline">contact@datajm.fr</a>
+                            Email : <a href="mailto:contact@datajm.fr" class="text-cyan-400 hover:text-cyan-300 hover:underline">contact@datajm.fr</a>
                         </p>
                     </div>
 
                     <div>
-                        <h3 class="font-semibold text-slate-900 mb-2">Données collectées</h3>
+                        <h3 class="font-semibold text-white mb-2">Données collectées</h3>
                         <p>
                             Dans le cadre de l'utilisation du site datajm.fr, nous sommes susceptibles de collecter 
                             les données suivantes :
@@ -149,7 +149,7 @@
                     </div>
 
                     <div>
-                        <h3 class="font-semibold text-slate-900 mb-2">Finalités du traitement</h3>
+                        <h3 class="font-semibold text-white mb-2">Finalités du traitement</h3>
                         <p>Les données collectées sont utilisées pour :</p>
                         <ul class="list-disc list-inside mt-2 space-y-1">
                             <li>Répondre à vos demandes de contact et d'information</li>
@@ -159,7 +159,7 @@
                     </div>
 
                     <div>
-                        <h3 class="font-semibold text-slate-900 mb-2">Base légale</h3>
+                        <h3 class="font-semibold text-white mb-2">Base légale</h3>
                         <p>
                             Le traitement de vos données repose sur votre <strong>consentement</strong> (envoi volontaire 
                             du formulaire de contact) et sur notre <strong>intérêt légitime</strong> (répondre à vos 
@@ -168,7 +168,7 @@
                     </div>
 
                     <div>
-                        <h3 class="font-semibold text-slate-900 mb-2">Durée de conservation</h3>
+                        <h3 class="font-semibold text-white mb-2">Durée de conservation</h3>
                         <p>
                             Vos données personnelles sont conservées pendant une durée de <strong>3 ans</strong> à compter 
                             de votre dernier contact avec DataJM, sauf obligation légale de conservation plus longue.
@@ -176,19 +176,19 @@
                     </div>
 
                     <div>
-                        <h3 class="font-semibold text-slate-900 mb-2">Destinataires des données</h3>
+                        <h3 class="font-semibold text-white mb-2">Destinataires des données</h3>
                         <p>
                             Vos données sont destinées uniquement à DataJM. Elles ne sont ni vendues, ni cédées à des tiers.
                         </p>
                         <p class="mt-2">
                             Les données du formulaire de contact sont transmises via le service 
-                            <a href="https://formspree.io" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Formspree</a> 
+                            <a href="https://formspree.io" target="_blank" rel="noopener" class="text-cyan-400 hover:text-cyan-300 hover:underline">Formspree</a> 
                             (sous-traitant basé aux États-Unis, conforme au RGPD).
                         </p>
                     </div>
 
                     <div>
-                        <h3 class="font-semibold text-slate-900 mb-2">Vos droits</h3>
+                        <h3 class="font-semibold text-white mb-2">Vos droits</h3>
                         <p>
                             Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des 
                             droits suivants :
@@ -204,11 +204,11 @@
                         </ul>
                         <p class="mt-4">
                             Pour exercer ces droits, contactez-nous à : 
-                            <a href="mailto:contact@datajm.fr" class="text-blue-600 hover:underline">contact@datajm.fr</a>
+                            <a href="mailto:contact@datajm.fr" class="text-cyan-400 hover:text-cyan-300 hover:underline">contact@datajm.fr</a>
                         </p>
                         <p class="mt-2">
                             En cas de difficulté, vous pouvez introduire une réclamation auprès de la 
-                            <a href="https://www.cnil.fr" target="_blank" rel="noopener" class="text-blue-600 hover:underline">CNIL</a> 
+                            <a href="https://www.cnil.fr" target="_blank" rel="noopener" class="text-cyan-400 hover:text-cyan-300 hover:underline">CNIL</a> 
                             (Commission Nationale de l'Informatique et des Libertés).
                         </p>
                     </div>
@@ -216,15 +216,15 @@
             </div>
 
             <!-- Cookies -->
-            <div class="bg-white rounded-2xl shadow-lg p-8">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                    <i class="ph ph-cookie text-blue-600"></i>
+            <div class="bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-8">
+                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <i class="ph ph-cookie text-cyan-400"></i>
                     Politique des Cookies
                 </h2>
 
-                <div class="space-y-6 text-slate-600">
+                <div class="space-y-6 text-slate-400">
                     <div>
-                        <h3 class="font-semibold text-slate-900 mb-2">Qu'est-ce qu'un cookie ?</h3>
+                        <h3 class="font-semibold text-white mb-2">Qu'est-ce qu'un cookie ?</h3>
                         <p>
                             Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, tablette, 
                             smartphone) lors de la visite d'un site web.
@@ -232,14 +232,14 @@
                     </div>
 
                     <div>
-                        <h3 class="font-semibold text-slate-900 mb-2">Cookies utilisés sur ce site</h3>
+                        <h3 class="font-semibold text-white mb-2">Cookies utilisés sur ce site</h3>
                         <p>
                             Ce site utilise uniquement des <strong>cookies techniques strictement nécessaires</strong> 
                             au fonctionnement du site. Aucun cookie publicitaire ou de tracking n'est utilisé.
                         </p>
                         <div class="mt-4 overflow-x-auto">
-                            <table class="min-w-full text-sm border border-slate-200 rounded-lg">
-                                <thead class="bg-slate-100">
+                            <table class="min-w-full text-sm border border-white/10 rounded-lg">
+                                <thead class="bg-white/5">
                                     <tr>
                                         <th class="px-4 py-2 text-left font-semibold">Service</th>
                                         <th class="px-4 py-2 text-left font-semibold">Finalité</th>
@@ -247,15 +247,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="border-t border-slate-200">
+                                    <tr class="border-t border-white/10">
                                         <td class="px-4 py-2">Cloudflare</td>
-                                        <td class="px-4 py-2">Sécurité et performance (CDN)</td>
+                                        <td class="px-4 py-2">Sécurité et performance (CDN/hébergement)</td>
                                         <td class="px-4 py-2">Session</td>
-                                    </tr>
-                                    <tr class="border-t border-slate-200">
-                                        <td class="px-4 py-2">Google Fonts</td>
-                                        <td class="px-4 py-2">Chargement des polices de caractères</td>
-                                        <td class="px-4 py-2">1 an</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -263,7 +258,7 @@
                     </div>
 
                     <div>
-                        <h3 class="font-semibold text-slate-900 mb-2">Gestion des cookies</h3>
+                        <h3 class="font-semibold text-white mb-2">Gestion des cookies</h3>
                         <p>
                             Vous pouvez configurer votre navigateur pour refuser les cookies. Cependant, cela pourrait 
                             affecter le fonctionnement de certaines fonctionnalités du site.
@@ -281,11 +276,11 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 py-8">
+    <footer class="border-t border-white/10 py-8">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="text-slate-500 text-sm">
                 &copy; <span id="footer-year">2026</span> DataJM. Tous droits réservés.<br>
-                <a href="index.html" class="text-blue-600 hover:underline">Retour à l'accueil</a>
+                <a href="index.html" class="text-cyan-400 hover:text-cyan-300 hover:underline">Retour à l'accueil</a>
             </p>
         </div>
     </footer>
