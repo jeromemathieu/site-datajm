@@ -326,8 +326,8 @@
                     class="bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-sm relative">
                     <!-- Schéma : données dispersées -> DataJM -> tableau de bord unifié -->
                     <p class="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">Complexité · Données dispersées</p>
-                    <svg viewBox="0 0 400 310" class="w-full h-auto" role="img"
-                        aria-label="Schéma : des données dispersées entre SAP, Excel et fichiers plats sont transformées par DataJM en un tableau de bord unifié">
+                    <svg viewBox="0 0 400 330" class="w-full h-auto" role="img"
+                        aria-label="Schéma : de multiples sources de données (Excel, SAP ECC, bases SQL, JSON, XML, CSV) sont transformées par DataJM en un tableau de bord unifié">
                         <style>
                             @keyframes flux-flow { to { stroke-dashoffset: -40; } }
                             @keyframes node-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
@@ -337,43 +337,83 @@
                                 .flux, .out-arrow { animation: none; }
                             }
                         </style>
-                        <!-- Sources de données -->
-                        <g font-size="12" font-weight="600">
-                            <rect x="8" y="2" width="112" height="38" rx="8" fill="#0f172a" stroke="#475569"/>
-                            <text x="64" y="26" text-anchor="middle" fill="#94a3b8">SAP ECC</text>
-                            <rect x="144" y="2" width="112" height="38" rx="8" fill="#0f172a" stroke="#475569"/>
-                            <text x="200" y="26" text-anchor="middle" fill="#94a3b8">Excel</text>
-                            <rect x="280" y="2" width="112" height="38" rx="8" fill="#0f172a" stroke="#475569"/>
-                            <text x="336" y="26" text-anchor="middle" fill="#94a3b8">Fichiers plats</text>
-                        </g>
-                        <!-- Flux emmêlés (animés) : la complexité -->
+
+                        <!-- ── Panel : Sources de données ── -->
+                        <rect x="4" y="4" width="392" height="114" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+                        <text x="200" y="19" text-anchor="middle" fill="#64748b" font-size="9" font-weight="600" letter-spacing="2">SOURCES DE DONNÉES</text>
+
+                        <!-- Row 1 : Excel / XLS -->
+                        <rect x="12" y="24" width="118" height="34" rx="6" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a" stroke-opacity="0.3" stroke-width="1"/>
+                        <rect x="17" y="29" width="22" height="24" rx="3" fill="#15803d"/>
+                        <text x="28" y="44" text-anchor="middle" fill="white" font-size="13" font-weight="800">X</text>
+                        <text x="46" y="44" fill="#86efac" font-size="10" font-weight="600">Excel / XLS</text>
+
+                        <!-- Row 1 : SAP ECC -->
+                        <rect x="141" y="24" width="118" height="34" rx="6" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-opacity="0.3" stroke-width="1"/>
+                        <rect x="146" y="29" width="22" height="24" rx="3" fill="#1d4ed8"/>
+                        <text x="157" y="42" text-anchor="middle" fill="white" font-size="7.5" font-weight="700">SAP</text>
+                        <text x="157" y="51" text-anchor="middle" fill="#93c5fd" font-size="6" font-weight="600">ECC</text>
+                        <text x="175" y="44" fill="#93c5fd" font-size="10" font-weight="600">SAP ECC</text>
+
+                        <!-- Row 1 : Base SQL (cylindre) -->
+                        <rect x="270" y="24" width="122" height="34" rx="6" fill="#a855f7" fill-opacity="0.12" stroke="#a855f7" stroke-opacity="0.3" stroke-width="1"/>
+                        <ellipse cx="282" cy="34" rx="9" ry="3.5" fill="#6d28d9"/>
+                        <rect x="273" y="34" width="18" height="13" fill="#7c3aed"/>
+                        <ellipse cx="282" cy="47" rx="9" ry="3.5" fill="#6d28d9"/>
+                        <ellipse cx="282" cy="34" rx="9" ry="3.5" fill="#8b5cf6"/>
+                        <text x="298" y="44" fill="#d8b4fe" font-size="10" font-weight="600">Base SQL</text>
+
+                        <!-- Row 2 : JSON -->
+                        <rect x="12" y="68" width="118" height="34" rx="6" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-opacity="0.3" stroke-width="1"/>
+                        <rect x="17" y="73" width="22" height="24" rx="3" fill="#b45309"/>
+                        <text x="28" y="88" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">{}</text>
+                        <text x="46" y="88" fill="#fde68a" font-size="10" font-weight="600">JSON</text>
+
+                        <!-- Row 2 : XML -->
+                        <rect x="141" y="68" width="118" height="34" rx="6" fill="#f43f5e" fill-opacity="0.12" stroke="#f43f5e" stroke-opacity="0.3" stroke-width="1"/>
+                        <rect x="146" y="73" width="22" height="24" rx="3" fill="#be123c"/>
+                        <text x="157" y="88" text-anchor="middle" fill="#fda4af" font-size="10" font-weight="700">&lt;/&gt;</text>
+                        <text x="175" y="88" fill="#fda4af" font-size="10" font-weight="600">XML</text>
+
+                        <!-- Row 2 : CSV (grille) -->
+                        <rect x="270" y="68" width="122" height="34" rx="6" fill="#06b6d4" fill-opacity="0.12" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="1"/>
+                        <rect x="275" y="73" width="22" height="24" rx="3" fill="#0e7490"/>
+                        <line x1="275" y1="81" x2="297" y2="81" stroke="#67e8f9" stroke-width="1.5" stroke-opacity="0.6"/>
+                        <line x1="275" y1="89" x2="297" y2="89" stroke="#67e8f9" stroke-width="1.5" stroke-opacity="0.6"/>
+                        <line x1="285" y1="73" x2="285" y2="97" stroke="#67e8f9" stroke-width="1.5" stroke-opacity="0.6"/>
+                        <text x="304" y="88" fill="#67e8f9" font-size="10" font-weight="600">CSV</text>
+
+                        <!-- ── Flux convergents animés ── -->
                         <g fill="none" stroke-width="2" stroke-dasharray="5 5" opacity="0.8">
-                            <path class="flux" d="M64,40 C64,85 330,60 212,126" stroke="#f87171"/>
-                            <path class="flux" d="M200,40 C200,75 70,95 188,127" stroke="#fbbf24"/>
-                            <path class="flux" d="M336,40 C336,90 90,55 206,124" stroke="#f59e0b"/>
+                            <path class="flux" d="M90,118 C90,140 172,148 186,158" stroke="#f87171"/>
+                            <path class="flux" d="M200,118 C200,138 200,148 200,158" stroke="#fbbf24" style="animation-delay:-0.5s"/>
+                            <path class="flux" d="M310,118 C310,140 228,148 214,158" stroke="#c084fc" style="animation-delay:-0.9s"/>
                         </g>
-                        <!-- Nœud DataJM -->
-                        <rect x="138" y="128" width="124" height="42" rx="21" fill="#2563eb" stroke="#60a5fa"/>
-                        <text x="200" y="155" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">DataJM</text>
-                        <!-- Flux unique et net : la clarté -->
+
+                        <!-- ── Nœud DataJM ── -->
+                        <rect x="138" y="158" width="124" height="42" rx="21" fill="#2563eb" stroke="#60a5fa" stroke-width="1.5"/>
+                        <text x="200" y="185" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">DataJM</text>
+
+                        <!-- ── Flèche de sortie unique ── -->
                         <g class="out-arrow">
-                            <line x1="200" y1="170" x2="200" y2="194" stroke="#38bdf8" stroke-width="2.5"/>
-                            <polygon points="193,193 207,193 200,203" fill="#38bdf8"/>
+                            <line x1="200" y1="200" x2="200" y2="222" stroke="#38bdf8" stroke-width="2.5"/>
+                            <polygon points="193,221 207,221 200,231" fill="#38bdf8"/>
                         </g>
-                        <!-- Tableau de bord unifié -->
-                        <rect x="60" y="204" width="280" height="96" rx="10" fill="#0f172a" stroke="#334155"/>
-                        <text x="200" y="223" text-anchor="middle" fill="#64748b" font-size="10" font-weight="600" letter-spacing="2">TABLEAU DE BORD UNIFIÉ</text>
+
+                        <!-- ── Tableau de bord unifié ── -->
+                        <rect x="60" y="232" width="280" height="90" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+                        <text x="200" y="250" text-anchor="middle" fill="#64748b" font-size="9" font-weight="600" letter-spacing="2">TABLEAU DE BORD UNIFIÉ</text>
                         <g>
-                            <rect x="84" y="268" width="18" height="20" rx="3" fill="#1d4ed8"/>
-                            <rect x="110" y="256" width="18" height="32" rx="3" fill="#2563eb"/>
-                            <rect x="136" y="244" width="18" height="44" rx="3" fill="#3b82f6"/>
-                            <rect x="162" y="232" width="18" height="56" rx="3" fill="#38bdf8"/>
-                            <line x1="80" y1="290" x2="190" y2="290" stroke="#334155" stroke-width="2"/>
+                            <rect x="84" y="292" width="16" height="20" rx="2" fill="#1d4ed8"/>
+                            <rect x="108" y="280" width="16" height="32" rx="2" fill="#2563eb"/>
+                            <rect x="132" y="268" width="16" height="44" rx="2" fill="#3b82f6"/>
+                            <rect x="156" y="258" width="16" height="54" rx="2" fill="#38bdf8"/>
+                            <line x1="80" y1="314" x2="183" y2="314" stroke="#334155" stroke-width="1.5"/>
                         </g>
-                        <g font-size="12" fill="#cbd5e1">
-                            <text x="210" y="246"><tspan fill="#4ade80">✓</tspan> Source unique fiable</text>
-                            <text x="210" y="268"><tspan fill="#4ade80">✓</tspan> KPI en temps réel</text>
-                            <text x="210" y="290"><tspan fill="#4ade80">✓</tspan> Décisions rapides</text>
+                        <g font-size="11" fill="#cbd5e1">
+                            <text x="206" y="268"><tspan fill="#4ade80">✓</tspan> Source unique fiable</text>
+                            <text x="206" y="287"><tspan fill="#4ade80">✓</tspan> KPI en temps réel</text>
+                            <text x="206" y="306"><tspan fill="#4ade80">✓</tspan> Décisions rapides</text>
                         </g>
                     </svg>
                     <p class="text-xs font-semibold uppercase tracking-widest text-slate-500 mt-3 text-right">Clarté · Une seule vision</p>
