@@ -48,6 +48,100 @@
                 linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
             background-size: 56px 56px;
         }
+
+        /* ── Accent signature (or chaud) : casse le « tout cyan » générique ── */
+        :root {
+            --gold: #e6a93c;
+            --gold-soft: #f3cd7f;
+        }
+
+        /* Marqueur de section éditorial : « 01 — Libellé » */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold-soft);
+        }
+        .eyebrow::before {
+            content: attr(data-num);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: var(--gold);
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px var(--gold);
+            letter-spacing: 0;
+        }
+        .eyebrow::after {
+            content: "";
+            width: 2rem;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+
+        /* Soulignage « tracé main » sous le mot-clé du titre */
+        .ink-underline {
+            position: relative;
+            white-space: nowrap;
+        }
+        .ink-underline > svg {
+            position: absolute;
+            left: -2%;
+            bottom: -0.28em;
+            width: 104%;
+            height: 0.38em;
+            overflow: visible;
+            color: var(--gold);
+        }
+        .ink-underline > svg path {
+            stroke-dasharray: 480;
+            stroke-dashoffset: 480;
+            animation: ink-draw 1.1s ease-out 0.5s forwards;
+        }
+        @keyframes ink-draw { to { stroke-dashoffset: 0; } }
+
+        /* Numéro fantôme dans les cartes service */
+        .card-index {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.75rem;
+            font-weight: 700;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(230, 169, 60, 0.28);
+            user-select: none;
+        }
+
+        /* Monogramme JM */
+        .monogram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(230, 169, 60, 0.4);
+            background: rgba(230, 169, 60, 0.06);
+            color: var(--gold-soft);
+        }
+
+        /* Signature manuscrite (Jérôme) */
+        .signature {
+            font-family: 'Space Grotesk', sans-serif;
+            font-style: italic;
+            font-weight: 500;
+            color: var(--gold-soft);
+            letter-spacing: 0.01em;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .ink-underline > svg path { animation: none; stroke-dashoffset: 0; }
+        }
     </style>
     <!-- Données structurées pour les moteurs de recherche -->
     <script type="application/ld+json">
@@ -146,7 +240,7 @@
             <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"
                 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight leading-[1.05]">
                 Valorisez vos données<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-300">SAP & Analytics</span>
+                <span class="ink-underline text-white">SAP &amp; Analytics<svg viewBox="0 0 300 12" fill="none" aria-hidden="true" preserveAspectRatio="none"><path d="M3 8.5C52 4 110 3 160 4.5C210 6 258 6.5 297 4" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg></span>
             </h1>
             <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"
                 class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -197,6 +291,15 @@
                 <strong class="text-cyan-300 font-semibold">interlocuteur unique</strong>, garantissant une compréhension fine de vos enjeux
                 métiers et une réactivité immédiate.
             </p>
+            <!-- Signature personnelle -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="350"
+                class="mt-8 inline-flex items-center gap-4">
+                <span class="monogram font-display font-bold">JM</span>
+                <span class="text-left leading-tight">
+                    <span class="signature text-2xl block">Jérôme Mathieu</span>
+                    <span class="text-xs uppercase tracking-widest text-slate-500">Consultant SAP indépendant</span>
+                </span>
+            </div>
         </div>
     </section>
 
@@ -205,16 +308,16 @@
         <div class="absolute top-1/3 left-0 w-[420px] h-[420px] rounded-full bg-blue-600/10 blur-3xl -z-10" aria-hidden="true"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span data-aos="fade-up" data-aos-duration="600"
-                    class="text-cyan-400 font-semibold tracking-widest uppercase text-xs">Mon savoir-faire</span>
+                <span data-aos="fade-up" data-aos-duration="600" class="eyebrow" data-num="01">Mon savoir-faire</span>
                 <h2 data-aos="fade-up" data-aos-duration="600" data-aos-delay="100"
-                    class="font-display text-3xl md:text-5xl font-bold text-white mt-3 tracking-tight">Expertise Data & SAP</h2>
+                    class="font-display text-3xl md:text-5xl font-bold text-white mt-4 tracking-tight">Expertise Data & SAP</h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Service 1 -->
                 <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="0"
-                    class="group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-blue-400/40 hover:bg-white/[0.07] transition duration-300">
+                    class="group relative p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-blue-400/40 hover:bg-white/[0.07] transition duration-300">
+                    <span class="card-index" aria-hidden="true">01</span>
                     <div
                         class="w-14 h-14 bg-gradient-to-br from-blue-500/25 to-cyan-400/15 border border-blue-400/20 text-blue-300 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
                         <i class="ph ph-arrows-left-right text-3xl" aria-hidden="true"></i>
@@ -232,7 +335,8 @@
 
                 <!-- Service 2 -->
                 <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="150"
-                    class="group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-violet-400/40 hover:bg-white/[0.07] transition duration-300">
+                    class="group relative p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-violet-400/40 hover:bg-white/[0.07] transition duration-300">
+                    <span class="card-index" aria-hidden="true">02</span>
                     <div
                         class="w-14 h-14 bg-gradient-to-br from-violet-500/25 to-fuchsia-400/15 border border-violet-400/20 text-violet-300 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
                         <i class="ph ph-chart-bar text-3xl" aria-hidden="true"></i>
@@ -250,7 +354,8 @@
 
                 <!-- Service 3 -->
                 <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300"
-                    class="group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-teal-400/40 hover:bg-white/[0.07] transition duration-300">
+                    class="group relative p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-teal-400/40 hover:bg-white/[0.07] transition duration-300">
+                    <span class="card-index" aria-hidden="true">03</span>
                     <div
                         class="w-14 h-14 bg-gradient-to-br from-teal-500/25 to-emerald-400/15 border border-teal-400/20 text-teal-300 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
                         <i class="ph ph-shield-check text-3xl" aria-hidden="true"></i>
@@ -275,10 +380,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-14 items-center">
                 <div>
-                    <span data-aos="fade-right" data-aos-duration="600"
-                        class="text-cyan-400 font-semibold tracking-widest uppercase text-xs">L'avantage indépendant</span>
+                    <span data-aos="fade-right" data-aos-duration="600" class="eyebrow" data-num="02">L'avantage indépendant</span>
                     <h2 data-aos="fade-right" data-aos-duration="800"
-                        class="font-display text-3xl md:text-5xl font-bold text-white mt-3 mb-6 tracking-tight">Pourquoi choisir DataJM ?</h2>
+                        class="font-display text-3xl md:text-5xl font-bold text-white mt-4 mb-6 tracking-tight">Pourquoi choisir DataJM ?</h2>
                     <p data-aos="fade-right" data-aos-duration="800" data-aos-delay="100"
                         class="text-slate-400 mb-10 text-lg">
                         Dans un projet SAP, la compétence ne suffit pas. Il faut de la compréhension métier et de la
@@ -431,10 +535,9 @@
         <div class="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[720px] h-[480px] rounded-full bg-blue-600/15 blur-3xl -z-10" aria-hidden="true"></div>
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <span data-aos="fade-up" data-aos-duration="600"
-                    class="text-cyan-400 font-semibold tracking-widest uppercase text-xs">Contact</span>
+                <span data-aos="fade-up" data-aos-duration="600" class="eyebrow justify-center" data-num="03">Contact</span>
                 <h2 data-aos="fade-up" data-aos-duration="600" data-aos-delay="100"
-                    class="font-display text-3xl md:text-5xl font-bold text-white mt-3 tracking-tight">Démarrons un projet</h2>
+                    class="font-display text-3xl md:text-5xl font-bold text-white mt-4 tracking-tight">Démarrons un projet</h2>
                 <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" class="text-slate-400 mt-4">
                     Disponibilité, TJM, Expertise... Posez-moi vos questions.</p>
             </div>
